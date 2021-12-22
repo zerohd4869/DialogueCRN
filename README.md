@@ -50,7 +50,7 @@ OUT_DIR="${WORK_DIR}/outputs/${DATASET}/${EXP_NO}"
 
 python -u ${WORK_DIR}/code/run_train_me.py   \
     --feature_type text --data_dir ${DATA_DIR} --output_dir ${OUT_DIR}  \
-    --gamma 1.0 --step_s 4  --step_p 0  --lr 0.001 --l2 0.0005  --dropout 0.2 --base_layer 1 \
+    --gamma 1.0 --step_s 4  --step_p 0  --lr 0.001 --l2 0.0005  --dropout 0.2 --base_layer 1
 
 ```
 
