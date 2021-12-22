@@ -1,4 +1,95 @@
 # DialogueCRN
-Source code for ACL-IJCNLP 2021 paper "[DialogueCRN: Contextual Reasoning Networks for Emotion Recognition in Conversations](https://arxiv.org/pdf/2106.01978.pdf)"
+Source code for ACL-IJCNLP 2021 paper "[DialogueCRN: Contextual Reasoning Networks for Emotion Recognition in Conversations](https://doi.org/10.18653/v1/2021.acl-long.547)"
 
-The code will be released soon.
+In this work, we focus on emotion recognition in textual conversations.
+
+# Quick Start
+
+### Requirements
+python==3.6.10      <br>
+torch==1.4.0        <br>
+torch-geometric==2.0.1  <br>
+torch-scatter==2.0.4    <br>
+sklearn==0.0        <br>
+numpy==1.19.5       <br>
+pandas==0.24.2
+
+Install related dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+### Dataset
+
+The original datasets can be found at [IEMOCAP](https://sail.usc.edu/iemocap/), [SEMAINE](https://semaine- db.eu) and [MELD](https://github.com/SenticNet/MELD).
+
+Following previous works (Hazarika et al., 2018b; Majumder et al., 2019; Ghosal et al., 2019), we leverage a CNN layer with max-pooling to exact context-free textual features from the transcript of each utterance.
+
+### Training/Testing
+
+For training model on IEMOCAP dataset , you can refer to the following:
+    
+```bash
+EXP_NO="dialoguecrn_v1"
+DATASET="iemocap"
+WORK_DIR="${WORK_PATH}/DialogueCRN" # your work path
+DATA_DIR="${WORK_DIR}/data/${DATASET}/IEMOCAP_features.pkl"
+OUT_DIR="${WORK_DIR}/outputs/${DATASET}/${EXP_NO}"
+
+python -u ${WORK_DIR}/code/run_train_ie.py   \
+    --feature_type text --data_dir ${DATA_DIR} --output_dir ${OUT_DIR}  \
+    --gamma 0 --step_s 3  --step_p 4  --lr 0.0001 --l2 0.0002  --dropout 0.2 --base_layer 2
+```
+
+For training model on MELD dataset , you can refer to the following:
+
+```bash
+EXP_NO="dialoguecrn_v1"
+DATASET="meld"
+WORK_DIR="${WORK_PATH}/DialogueCRN" # # your work path
+DATA_DIR="${WORK_DIR}/data/${DATASET}/MELD_features_raw.pkl"
+OUT_DIR="${WORK_DIR}/outputs/${DATASET}/${EXP_NO}"
+
+python -u ${WORK_DIR}/code/run_train_me.py   \
+    --feature_type text --data_dir ${DATA_DIR} --output_dir ${OUT_DIR}  \
+    --gamma 1.0 --step_s 4  --step_p 0  --lr 0.001 --l2 0.0005  --dropout 0.2 --base_layer 1 \
+
+```
+
+### Run examples
+```bash
+bash ./script/run_train_ie.sh
+bash ./script/run_train_md.sh
+```
+
+
+### Result
+
+Experiment Result on th IEMOCAP and MELD datasets:
+
+ | Model|IEMOCAP| | | | | | | | | MELD| | |
+ |:-----|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+ | |Happy|Sad|Neutral|Angry|Excited|Frustrated|Acc|w-F1| ma-F1 |Acc|w-F1| ma-F1|
+ | TextCNN      |33.22|53.44|46.11|53.01|48.39|54.59|49.35|49.21|48.13|59.69|56.83|33.8|
+ | ICON         |29.91|64.57|57.38|63.04|63.42|**60.81**|58.3|57.9|56.52|-|-|-|
+ | DialogueRNN  |33.78|78.7|60.29|62.01|68.55|60.62|63.03|62.5|60.66|59.54|56.39|32.93|
+ | DialogueGCN  |53.52|78.97|**61.25**|58.97|73.24|54.62|64.02|63.65|63.42|59.46|56.77|34.05|
+ | **DialogueCRN**(ours) |**62.82**|**82.59**|59.97|**63.13**|**76.54**|58.43|**66.73**|**66.66**|**67.25**|**60.50**|**58.25**|**35.65**|
+
+
+# Citation
+```
+@inproceedings{DBLP:conf/acl/HuWH20,
+  author    = {Dou Hu and
+               Lingwei Wei and
+               Xiaoyong Huai},
+  title     = {DialogueCRN: Contextual Reasoning Networks for Emotion Recognition
+               in Conversations},
+  booktitle = {{ACL/IJCNLP} {(1)}},
+  pages     = {7042--7052},
+  publisher = {Association for Computational Linguistics},
+  year      = {2021}
+}
+```
+
+
