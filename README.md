@@ -1,7 +1,7 @@
 # DialogueCRN
 Source code for ACL-IJCNLP 2021 paper "[DialogueCRN: Contextual Reasoning Networks for Emotion Recognition in Conversations](https://doi.org/10.18653/v1/2021.acl-long.547)".
 
-# Quick Start
+## Quick Start
 
 ### Requirements
 python==3.6.10          <br>
@@ -61,7 +61,7 @@ bash ./script/run_train_md.sh
 ```
 
 
-### Result
+## Result
 
 Reproduced experiment results on th IEMOCAP and MELD datasets:
 
