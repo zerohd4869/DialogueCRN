@@ -152,15 +152,15 @@ if __name__ == '__main__':
 
     parser.add_argument('--lr', type=float, default=0.001, metavar='LR', help='learning rate')
 
-    parser.add_argument('--l2', type=float, default=0.0005, metavar='L2', help='L2 regularization weight')
+    parser.add_argument('--l2', type=float, default=0.0002, metavar='L2', help='L2 regularization weight')
 
     parser.add_argument('--dropout', type=float, default=0.2, metavar='dropout', help='dropout rate')
 
-    parser.add_argument('--step_s', type=int, default=4, help='the number of reason turns at situation-level')
+    parser.add_argument('--step_s', type=int, default=3, help='the number of reason turns at situation-level')
 
     parser.add_argument('--step_p', type=int, default=0, help='the number of reason turns at speaker-level')
 
-    parser.add_argument('--gamma', type=float, default=1.0, help='gamma 0/0.5/1/2')
+    parser.add_argument('--gamma', type=float, default=1, help='gamma 0/0.5/1/2')
 
     parser.add_argument('--no-cuda', action='store_true', default=False, help='does not use GPU')
 
