@@ -67,14 +67,14 @@ Results of DialogueCRN on the IEMOCAP datasets:
 
 | **IEMOCAP**| | | | | | | | |
 |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-|Happy|Sad|Neutral|Angry|Excited|Frustrated|Acc|Weighted-F1| Macro-F1 |
-|62.82|82.59|59.97|63.13|76.54|58.43|66.73|66.66|67.25| |
+|Happy|Sad|Neutral|Angry|Excited|Frustrated|Acc|Macro-F1|Weighted-F1|
+|62.82|82.59|59.97|63.13|76.54|58.43|66.73|67.25|66.66|
 
 Results of DialogueCRN on the MELD datasets:
 
 | **MELD** | | | | | | | | |
 |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-|Neutral|Surprise|Sadness|Happy|Anger|Fear/Disgust|Acc|Weighted-F1| Macro-F1|
+|Neutral|Surprise|Sadness|Happy|Anger|Fear/Disgust|Acc|Macro-F1|Weighted-F1|
 |76.93|49.74|23.17|54.21|45.26|-|61.26|35.62|58.55|
 
 
