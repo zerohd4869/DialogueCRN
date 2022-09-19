@@ -63,14 +63,14 @@ bash ./script/run_train_me.sh
 
 ## Results
 
-Results of DialogueCRN on the IEMOCAP datasets:
+Reproduced results of DialogueCRN on the IEMOCAP datasets:
 
 | **IEMOCAP**| | | | | | | | |
 |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
 |Happy|Sad|Neutral|Angry|Excited|Frustrated|Acc|Macro-F1|Weighted-F1|
 |62.82|82.59|59.97|63.13|76.54|58.43|66.73|67.25|66.66|
 
-Results of DialogueCRN on the MELD datasets:
+Reproduced results of DialogueCRN on the MELD datasets:
 
 | **MELD** | | | | | | | | |
 |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
