@@ -11,7 +11,7 @@ echo "${EXP_NO}, ${DATASET}"
 
 DATA_DIR="${WORK_DIR}/data/${DATASET}/MELD_features_raw.pkl"
 OUT_DIR="${WORK_DIR}/outputs/${DATASET}/${EXP_NO}"
-MODEL_DIR="${WORK_DIR}/outputs/meld/dialoguecrn_v1/dialoguecrn_36.pkl"
+MODEL_DIR="${WORK_DIR}/outputs/meld/dialoguecrn_base/dialoguecrn_36.pkl"
 
 LOG_PATH="${WORK_DIR}/logs/${DATASET}"
 if [[ ! -d ${LOG_PATH} ]];then
