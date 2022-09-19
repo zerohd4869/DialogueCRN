@@ -1,18 +1,20 @@
-import argparse
 import os
+
+import argparse
+import numpy as np
 import random
 import time
-
-import numpy as np
 import torch
+import torch.nn
 import torch.optim as optim
 from dataloader import MELDDataset
-from loss import FocalLoss
 from model import DialogueCRN
 from sklearn import metrics
 from sklearn.metrics import f1_score, accuracy_score
 from torch.utils.data import DataLoader
 from torch.utils.data.sampler import SubsetRandomSampler
+from loss import FocalLoss
+
 
 
 def seed_everything(seed=2021):
@@ -150,15 +152,15 @@ if __name__ == '__main__':
 
     parser.add_argument('--valid_rate', type=float, default=0.0, metavar='valid_rate', help='valid rate')
 
-    parser.add_argument('--lr', type=float, default=0.001, metavar='LR', help='learning rate')
+    parser.add_argument('--lr', type=float, default=0.0005, metavar='LR', help='learning rate')
 
     parser.add_argument('--l2', type=float, default=0.0002, metavar='L2', help='L2 regularization weight')
 
     parser.add_argument('--dropout', type=float, default=0.2, metavar='dropout', help='dropout rate')
 
-    parser.add_argument('--step_s', type=int, default=3, help='the number of reason turns at situation-level')
+    parser.add_argument('--step_s', type=int, default=3, help='the number of reason turns at situation-level,3')
 
-    parser.add_argument('--step_p', type=int, default=0, help='the number of reason turns at speaker-level')
+    parser.add_argument('--step_p', type=int, default=0, help='the number of reason turns at speaker-level,0')
 
     parser.add_argument('--gamma', type=float, default=1, help='gamma 0/0.5/1/2')
 

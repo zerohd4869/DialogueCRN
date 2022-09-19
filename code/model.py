@@ -35,7 +35,7 @@ def feature_transfer(bank_s_, bank_p_, seq_lengths, cuda_flag=False):
 
     max_len = max(seq_lengths)
     start = torch.cumsum(torch.cat((start_zero, input_conversation_length[:-1])), 0)
-    # (87,32,300)
+    # (l,b,h)
     bank_s = torch.stack(
         [pad(bank_s_.narrow(0, s, l), max_len, cuda_flag) for s, l in zip(start.data.tolist(), input_conversation_length.data.tolist())], 0
     ).transpose(0, 1)

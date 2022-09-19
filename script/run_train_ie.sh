@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-export CUDA_VISIBLE_DEVICES=1
+export CUDA_VISIBLE_DEVICES=0
 
 WORK_DIR="./DialogueCRN"
 
 
-EXP_NO="dialoguecrn_v1"
+EXP_NO="dialoguecrn_base"
 DATASET="iemocap"
 echo "${EXP_NO}, ${DATASET}"
 
@@ -18,7 +18,7 @@ if [[ ! -d ${LOG_PATH} ]];then
     mkdir -p  ${LOG_PATH}
 fi
 
-G="0 0.5 1 2"
+G="0"
 S="0 1 2 3 4 5 6"
 
 for g in ${G[@]}

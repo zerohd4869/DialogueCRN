@@ -4,13 +4,13 @@ Source code for ACL-IJCNLP 2021 paper "[DialogueCRN: Contextual Reasoning Networ
 ## Quick Start
 
 ### Requirements
-python==3.6.10          <br>
-torch==1.4.0            <br>
-torch-geometric==2.0.1  <br>
-torch-scatter==2.0.4    <br>
-sklearn==0.0            <br>
-numpy==1.19.5           <br>
-pandas==0.24.2          <br>
+
+* python 3.6.10          
+* torch 1.4.0            
+* torch-geometric 1.4.3
+* torch-scatter 2.0.4
+* scikit-learn 0.21.2
+* CUDA 10.1
 
 Install related dependencies:
 ```bash
@@ -50,7 +50,7 @@ OUT_DIR="${WORK_DIR}/outputs/${DATASET}/${EXP_NO}"
 
 python -u ${WORK_DIR}/code/run_train_me.py   \
     --feature_type text --data_dir ${DATA_DIR} --output_dir ${OUT_DIR}  \
-    --gamma 1.0 --step_s 3  --step_p 0  --lr 0.001 --l2 0.0002  --dropout 0.2 --base_layer 1
+    --gamma 1.0 --step_s 3  --step_p 0  --lr 0.0005 --l2 0.0002  --dropout 0.2 --base_layer 1
 
 ```
 
@@ -61,21 +61,17 @@ bash ./script/run_train_md.sh
 ```
 
 
-## Result
+## Results
 
-Reproduced experiment results on th IEMOCAP and MELD datasets:
+Reproduced Results on the IEMOCAP and MELD datasets:
 
-
-
- | Model|IEMOCAP|  | | MELD| | |
- |:-----|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
- | |Acc|w-F1| ma-F1 |Acc|w-F1| ma-F1|
- | TextCNN      |49.35|49.21|48.13|59.69|56.83|33.80|
- | bc-LSTM+Att  |56.32|56.19|54.84|57.50|55.90|34.84|
- | DialogueRNN  |63.03|62.50|60.66|59.54|56.39|32.93|
- | DialogueGCN  |64.02|63.65|63.42|59.46|56.77|34.05|
- | **DialogueCRN** |**66.73**|**66.66**|**67.25**|**61.26**|**58.48**|**35.69**|
-
+| | | | | | | | | | | |
+|:-----|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+|**IEMOCAP**|Happy|Sad|Neutral|Angry|Excited|Frustrated|Acc|w-F1| ma-F1 | |
+|DialogueCRN |62.82|82.59|59.97|63.13|76.54|58.43|66.73|66.66|67.25| |
+| | | | | | | | | | | |
+|**MELD**|Neutral|Surprise|Sadness|Happy|Anger|Fear/Disgust|Acc|w-F1|ma-F1|
+| DialogueCRN |76.93|49.74|23.17|54.21|45.26|-|61.26|35.62|58.55|
 
 
 # Citation
