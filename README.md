@@ -57,7 +57,7 @@ python -u ${WORK_DIR}/code/run_train_me.py   \
 ### Run examples
 ```bash
 bash ./script/run_train_ie.sh
-bash ./script/run_train_md.sh
+bash ./script/run_train_me.sh
 ```
 
 
