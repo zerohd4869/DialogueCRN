@@ -63,15 +63,19 @@ bash ./script/run_train_md.sh
 
 ## Results
 
-Reproduced Results on the IEMOCAP and MELD datasets:
+Results of DialogueCRN on the IEMOCAP datasets:
 
-| | | | | | | | | | | |
-|:-----|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-|**IEMOCAP**|Happy|Sad|Neutral|Angry|Excited|Frustrated|Acc|w-F1| ma-F1 | |
-|DialogueCRN |62.82|82.59|59.97|63.13|76.54|58.43|66.73|66.66|67.25| |
-| | | | | | | | | | | |
-|**MELD**|Neutral|Surprise|Sadness|Happy|Anger|Fear/Disgust|Acc|w-F1|ma-F1|
-| DialogueCRN |76.93|49.74|23.17|54.21|45.26|-|61.26|35.62|58.55|
+| **IEMOCAP**| | | | | | | | |
+|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+|Happy|Sad|Neutral|Angry|Excited|Frustrated|Acc|w-F1| ma-F1 |
+|62.82|82.59|59.97|63.13|76.54|58.43|66.73|66.66|67.25| |
+
+Results of DialogueCRN on the MELD datasets:
+
+| **MELD** | | | | | | | | |
+|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+|Neutral|Surprise|Sadness|Happy|Anger|Fear/Disgust|Acc|w-F1|ma-F1|
+|76.93|49.74|23.17|54.21|45.26|-|61.26|35.62|58.55|
 
 
 # Citation
