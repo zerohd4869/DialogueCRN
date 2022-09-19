@@ -21,7 +21,10 @@ pip install -r requirements.txt
 
 The original datasets can be found at [IEMOCAP](https://sail.usc.edu/iemocap/), [SEMAINE](https://semaine-db.eu) and [MELD](https://github.com/SenticNet/MELD).
 
-In this work, we focus on emotion recognition in textual conversations. Following previous works (bc-LSTM, DialogueRNN, DialogueGCN, et al.), raw features of textual modality are extracted by using TextCNN.
+In this work, we focus on emotion recognition in textual conversations. 
+Following previous works (bc-LSTM, DialogueRNN, DialogueGCN, et al.), raw utterance-level features of textual modality are extracted by using TextCNN.
+The processed features can be found by the [link](https://github.com/declare-lab/conv-emotion/tree/master/bc-LSTM-pytorch).
+
 
 ### Training/Testing
 
