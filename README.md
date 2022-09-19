@@ -1,5 +1,5 @@
 # DialogueCRN
-Source code for ACL-IJCNLP 2021 paper "[DialogueCRN: Contextual Reasoning Networks for Emotion Recognition in Conversations](https://doi.org/10.18653/v1/2021.acl-long.547)".
+Source code for ACL-IJCNLP 2021 paper "[DialogueCRN: Contextual Reasoning Networks for Emotion Recognition in Conversations](https://arxiv.org/pdf/2106.01978.pdf)".
 
 ## Quick Start
 
