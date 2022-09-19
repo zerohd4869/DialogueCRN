@@ -28,7 +28,7 @@ In this work, we focus on emotion recognition in textual conversations. Followin
 For training model on IEMOCAP dataset , you can refer to the following:
     
 ```bash
-EXP_NO="dialoguecrn_v1"
+EXP_NO="dialoguecrn_base"
 DATASET="iemocap"
 WORK_DIR="${WORK_PATH}/DialogueCRN" # your work path
 DATA_DIR="${WORK_DIR}/data/${DATASET}/IEMOCAP_features.pkl"
@@ -42,7 +42,7 @@ python -u ${WORK_DIR}/code/run_train_ie.py   \
 For training model on MELD dataset , you can refer to the following:
 
 ```bash
-EXP_NO="dialoguecrn_v1"
+EXP_NO="dialoguecrn_base"
 DATASET="meld"
 WORK_DIR="${WORK_PATH}/DialogueCRN" # # your work path
 DATA_DIR="${WORK_DIR}/data/${DATASET}/MELD_features_raw.pkl"
