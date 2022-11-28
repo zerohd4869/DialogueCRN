@@ -1,6 +1,8 @@
 # DialogueCRN
 Source code for ACL-IJCNLP 2021 paper "[DialogueCRN: Contextual Reasoning Networks for Emotion Recognition in Conversations](https://arxiv.org/pdf/2106.01978.pdf)".
 
+In this work, we focus on emotion recognition in textual conversations (textual ERC). If you are interested in multimodal ERC, you can jump to our relevant work in [MM-DFN](https://github.com/zerohd4869/MM-DFN).
+
 ## Quick Start
 
 ### Requirements
@@ -20,8 +22,6 @@ pip install -r requirements.txt
 ### Dataset
 
 The original datasets can be found at [IEMOCAP](https://sail.usc.edu/iemocap/), [SEMAINE](https://semaine-db.eu) and [MELD](https://github.com/SenticNet/MELD).
-
-In this work, we focus on emotion recognition in textual conversations (textual ERC). If you are interested in multimodal ERC, you can jump to our relevant work in [MM-DFN](https://github.com/zerohd4869/MM-DFN).
 
 Following previous works (bc-LSTM, DialogueRNN, DialogueGCN, et al.), raw utterance-level features of textual modality are extracted by TextCNN with Glove embedding.
 The pre-extracted features can be found in [bc-LSTM](https://github.com/declare-lab/conv-emotion/tree/master/bc-LSTM-pytorch). If you want to train the features by yourself, you can refer to [DialogueGCN](https://github.com/declare-lab/conv-emotion/tree/master/DialogueGCN).
