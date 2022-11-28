@@ -3,7 +3,6 @@ Source code for ACL-IJCNLP 2021 paper "[DialogueCRN: Contextual Reasoning Networ
 
 In this work, we focus on emotion recognition in textual conversations (textual ERC). If you are interested in multimodal ERC, you can jump to our relevant work in MM-DFN ([paper](https://arxiv.org/pdf/2203.02385.pdf), [code](https://github.com/zerohd4869/MM-DFN)).
 
-
 ## Quick Start
 
 ### Requirements
