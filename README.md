@@ -70,7 +70,7 @@ bash ./script/run_train_me.sh
 
 ## Results
 
-Reproduced results of DialogueCRN on the IEMOCAP datasets:
+Results of DialogueCRN on the IEMOCAP datasets:
 
 |Model |Hap|Sad|Neu|Ang|Exc|Fru|*Acc*|*Macro-F1*|*Weighted-F1*|
 |:----- |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
@@ -79,7 +79,7 @@ Reproduced results of DialogueCRN on the IEMOCAP datasets:
 |DialogueCRN + RoBERTa |54.28|81.34|69.57|62.09|67.33|64.22|67.39|66.47|67.53|
 
 
-Reproduced results of DialogueCRN on the MELD datasets:
+Results of DialogueCRN on the MELD datasets:
 
 |Model |Neu|Sur|Fear|Sad|Hap|Ang|Dis|*Acc*|*Macro-F1*|*Weighted-F1*|
 |:-----|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
