@@ -81,7 +81,7 @@ Reproduced results of DialogueCRN on the IEMOCAP datasets:
 Reproduced results of DialogueCRN on the MELD datasets:
 
 
-|Model |Neutral|Surprise|Fear|Sadness|Happy|Anger|Disgust|*Acc*|*Macro-F1*|*Weighted-F1*|
+|Model |Neutral|Surprise|Fear|Sad|Happy|Anger|Disgust|*Acc*|*Macro-F1*|*Weighted-F1*|
 |:-----|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
 |DialogueCRN (paper) |76.62|49.69|-|24.37|53.70|44.91|-|60.73|35.51|58.39|
 |DialogueCRN + Multimodal |77.01|50.10|-|26.63|52.77|45.15|-|61.11|35.95|58.67|
