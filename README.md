@@ -72,7 +72,7 @@ bash ./script/run_train_me.sh
 
 Reproduced results of DialogueCRN on the IEMOCAP datasets:
 
-|Model |Happy|Sad|Neutral|Angry|Excited|Frustrated|*Acc*|*Ma-F1*|*W-F1*|
+|Model |Hap|Sad|Neu|Ang|Exc|Fru|*Acc*|*Macro-F1*|*Weighted-F1*|
 |:----- |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
 |DialogueCRN (paper) |62.61|81.86|60.05|58.49|75.17|60.08|66.05|66.38|66.20|
 |DialogueCRN + Multimodal |53.23|83.37|62.96|66.09|75.40|66.07|67.16|66.92|67.21|
@@ -80,7 +80,7 @@ Reproduced results of DialogueCRN on the IEMOCAP datasets:
 
 Reproduced results of DialogueCRN on the MELD datasets:
 
-|Model |Neutral|Surprise|Fear|Sad|Happy|Anger|Disgust|*Acc*|*Ma-F1*|*W-F1*|
+|Model |Neu|Sur|Fear|Sad|Hap|Ang|Dis|*Acc*|*Macro-F1*|*Weighted-F1*|
 |:-----|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
 |DialogueCRN (paper) |76.62|49.69|-|24.37|53.70|44.91|-|60.73|35.51|58.39|
 |DialogueCRN + Multimodal |77.01|50.10|-|26.63|52.77|45.15|-|61.11|35.95|58.67|
