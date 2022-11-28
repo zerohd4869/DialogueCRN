@@ -22,9 +22,10 @@ pip install -r requirements.txt
 The original datasets can be found at [IEMOCAP](https://sail.usc.edu/iemocap/), [SEMAINE](https://semaine-db.eu) and [MELD](https://github.com/SenticNet/MELD).
 
 In this work, we focus on emotion recognition in textual conversations. 
-Following previous works (bc-LSTM, DialogueRNN, DialogueGCN, et al.), raw utterance-level features of textual modality are extracted by using TextCNN.
-The processed features can be found by the [link](https://github.com/declare-lab/conv-emotion/tree/master/bc-LSTM-pytorch).
+Following previous works (bc-LSTM, DialogueRNN, DialogueGCN, et al.), raw utterance-level features of textual modality are extracted by TextCNN with Glove embedding.
+The pre-extracted text features can be found in [bc-LSTM](https://github.com/declare-lab/conv-emotion/tree/master/bc-LSTM-pytorch). If you want to train text features by yourself, you can refer to [DialogueGCN](https://github.com/declare-lab/conv-emotion/tree/master/DialogueGCN).
 
+Besides, another alternative is to use BERT/RoBERTa to process text features, which will achieve better performance in most cases. You also can find the code and processed features by [COSMIC](https://github.com/declare-lab/conv-emotion/tree/master/COSMIC/feature-extraction).
 
 ### Training/Testing
 
@@ -68,18 +69,21 @@ bash ./script/run_train_me.sh
 
 Reproduced results of DialogueCRN on the IEMOCAP datasets:
 
-| **IEMOCAP**| | | | | | | | |
-|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-|Happy|Sad|Neutral|Angry|Excited|Frustrated|Acc|Macro-F1|Weighted-F1|
-|62.82|82.59|59.97|63.13|76.54|58.43|66.73|67.25|66.66|
+|Model |Happy|Sad|Neutral|Angry|Excited|Frustrated|*Acc*|*Ma-F1*|*W-F1*|
+|:----- |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+|DialogueCRN (paper) |62.61|81.86|60.05|58.49|75.17|60.08|66.05|66.38|66.20|
+|DialogueCRN + Multimodal |53.23|83.37|62.96|66.09|75.40|66.07|67.16|66.92|67.21|
+|DialogueCRN + RoBERTa |54.28|81.34|69.57|62.09|67.33|64.22|67.39|66.47|67.53|
+
 
 Reproduced results of DialogueCRN on the MELD datasets:
 
-| **MELD** | | | | | | | | |
-|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-|Neutral|Surprise|Sadness|Happy|Anger|Fear/Disgust|Acc|Macro-F1|Weighted-F1|
-|76.93|49.74|23.17|54.21|45.26|-|61.26|35.62|58.55|
 
+|Model |Neutral|Surprise|Fear|Sadness|Happy|Anger|Disgust|*Acc*|*Ma-F1*|*W-F1*|
+|:-----|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+|DialogueCRN (paper) |76.62|49.69|-|24.37|53.70|44.91|-|60.73|35.51|58.39|
+|DialogueCRN + Multimodal |77.01|50.10|-|26.63|52.77|45.15|-|61.11|35.95|58.67|
+|DialogueCRN + RoBERTa |79.72|57.62|18.26|39.30|64.56|32.07|52.53|66.93|49.15|65.90|
 
 # Citation
 ```
