@@ -66,7 +66,6 @@ bash ./script/run_train_ie.sh
 bash ./script/run_train_me.sh
 ```
 
-
 ## Results
 
 Results of DialogueCRN on the IEMOCAP dataset:
