@@ -21,11 +21,12 @@ pip install -r requirements.txt
 
 The original datasets can be found at [IEMOCAP](https://sail.usc.edu/iemocap/), [SEMAINE](https://semaine-db.eu) and [MELD](https://github.com/SenticNet/MELD).
 
-In this work, we focus on emotion recognition in textual conversations. 
-Following previous works (bc-LSTM, DialogueRNN, DialogueGCN, et al.), raw utterance-level features of textual modality are extracted by TextCNN with Glove embedding.
-The pre-extracted text features can be found in [bc-LSTM](https://github.com/declare-lab/conv-emotion/tree/master/bc-LSTM-pytorch). If you want to train text features by yourself, you can refer to [DialogueGCN](https://github.com/declare-lab/conv-emotion/tree/master/DialogueGCN).
+In this work, we focus on emotion recognition in textual conversations (textual ERC). If you are interested in multimodal ERC, you can jump to our relevant work in [MM-DFN](https://github.com/zerohd4869/MM-DFN).
 
-Besides, another alternative is to use BERT/RoBERTa to process text features, which will achieve better performance in most cases. You also can find the code and processed features by [COSMIC](https://github.com/declare-lab/conv-emotion/tree/master/COSMIC/feature-extraction).
+Following previous works (bc-LSTM, DialogueRNN, DialogueGCN, et al.), raw utterance-level features of textual modality are extracted by TextCNN with Glove embedding.
+The pre-extracted features can be found in [bc-LSTM](https://github.com/declare-lab/conv-emotion/tree/master/bc-LSTM-pytorch). If you want to train the features by yourself, you can refer to [DialogueGCN](https://github.com/declare-lab/conv-emotion/tree/master/DialogueGCN).
+
+Besides, another alternative is to use BERT/RoBERTa to process text features, which will achieve better performance in most cases. You also can find the code and processed features with RoBERTa embedding in [COSMIC](https://github.com/declare-lab/conv-emotion/tree/master/COSMIC/feature-extraction).
 
 ### Training/Testing
 
