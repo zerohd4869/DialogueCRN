@@ -80,7 +80,7 @@ Results of DialogueCRN on the IEMOCAP dataset:
 Neutral	Surprise	Sadness	Happy	Anger	Fear/Disgust	Acc	Macro-F1	Weighted-F1
 Results of DialogueCRN on the MELD dataset:
 
-|Model |Neutral|Surprise|Fear|Sad|Happy|Anger|Disgust|*Acc*|*Weighted-F1*|
+|Model |Neutral|Surprise|Fear|Sad|Happy|Disgust|Anger|*Acc*|*Weighted-F1*|
 |:-----|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
 |DialogueCRN (paper) |76.62|49.69|-|24.37|53.70|-|44.91|60.73|58.39|
 |DialogueCRN + Multimodal |77.01|50.10|-|26.63|52.77|-|45.15|61.11|58.67|
