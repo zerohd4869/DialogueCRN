@@ -1,7 +1,7 @@
 # DialogueCRN
 Source code for ACL-IJCNLP 2021 paper "[DialogueCRN: Contextual Reasoning Networks for Emotion Recognition in Conversations](https://arxiv.org/pdf/2106.01978.pdf)".
 
-In this work, we focus on emotion recognition in textual conversations (textual ERC). If you are interested in multimodal ERC, you can jump to our relevant work in MM-DFN ([paper](https://arxiv.org/pdf/2203.02385.pdf), [code](https://github.com/zerohd4869/MM-DFN)).
+In this work, we focus on emotion recognition in textual conversations (textual ERC). If you are interested in multimodal ERC, you can refer to a related work [MM-DFN](https://arxiv.org/pdf/2203.02385.pdf).
 
 ## Quick Start
 
@@ -71,20 +71,20 @@ bash ./script/run_train_me.sh
 
 Results of DialogueCRN on the IEMOCAP dataset:
 
-|Model |Hap|Sad|Neu|Ang|Exc|Fru|*Acc*|*Macro-F1*|*Weighted-F1*|
-|:----- |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-|DialogueCRN (paper) |62.61|81.86|60.05|58.49|75.17|60.08|66.05|66.38|66.20|
-|DialogueCRN + Multimodal |53.23|83.37|62.96|66.09|75.40|66.07|67.16|66.92|67.21|
-|DialogueCRN + RoBERTa |54.28|81.34|69.57|62.09|67.33|64.22|67.39|66.47|67.53|
+|Model |Happy|Sad|Neutral|Angry|Excited|Frustrated|*Acc*|*Weighted-F1*|
+|:----- |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+|DialogueCRN (paper) |62.61|81.86|60.05|58.49|75.17|60.08|66.05|66.20|
+|DialogueCRN + Multimodal |53.23|83.37|62.96|66.09|75.40|66.07|67.16|67.21|
+|DialogueCRN + RoBERTa |54.28|81.34|69.57|62.09|67.33|64.22|67.39|67.53|
 
-
+Neutral	Surprise	Sadness	Happy	Anger	Fear/Disgust	Acc	Macro-F1	Weighted-F1
 Results of DialogueCRN on the MELD dataset:
 
-|Model |Neu|Sur|Fear|Sad|Hap|Ang|Dis|*Acc*|*Macro-F1*|*Weighted-F1*|
-|:-----|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-|DialogueCRN (paper) |76.62|49.69|-|24.37|53.70|-|44.91|60.73|35.51|58.39|
-|DialogueCRN + Multimodal |77.01|50.10|-|26.63|52.77|-|45.15|61.11|35.95|58.67|
-|DialogueCRN + RoBERTa |79.72|57.62|18.26|39.30|64.56|32.07|52.53|66.93|49.15|65.90|
+|Model |Neutral|Surprise|Fear|Sadness|Happy|Anger|Disgust|*Acc*|*Weighted-F1*|
+|:-----|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+|DialogueCRN (paper) |76.62|49.69|-|24.37|53.70|-|44.91|60.73|58.39|
+|DialogueCRN + Multimodal |77.01|50.10|-|26.63|52.77|-|45.15|61.11|58.67|
+|DialogueCRN + RoBERTa |79.72|57.62|18.26|39.30|64.56|32.07|52.53|66.93|65.90|
 
 # Citation
 ```
