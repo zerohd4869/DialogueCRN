@@ -29,6 +29,7 @@ The pre-extracted features can be found in [bc-LSTM](https://github.com/declare-
 
 Besides, another alternative is to use BERT/RoBERTa to process text features, which will achieve better performance in most cases. You also can find the code and processed features with RoBERTa embedding in [COSMIC](https://github.com/declare-lab/conv-emotion/tree/master/COSMIC/feature-extraction).
 
+
 ### Training/Testing
 
 For training model on IEMOCAP dataset , you can refer to the following:
@@ -57,7 +58,6 @@ OUT_DIR="${WORK_DIR}/outputs/${DATASET}/${EXP_NO}"
 python -u ${WORK_DIR}/code/run_train_me.py   \
     --feature_type text --data_dir ${DATA_DIR} --output_dir ${OUT_DIR}  \
     --gamma 1.0 --step_s 3  --step_p 0  --lr 0.0005 --l2 0.0002  --dropout 0.2 --base_layer 1
-
 ```
 
 ### Run examples
@@ -85,6 +85,7 @@ Results of DialogueCRN on the MELD dataset:
 |DialogueCRN (paper) |76.62|49.69|-|24.37|53.70|-|44.91|60.73|58.39|
 |DialogueCRN + Multimodal |77.01|50.10|-|26.63|52.77|-|45.15|61.11|58.67|
 |DialogueCRN + RoBERTa |79.72|57.62|18.26|39.30|64.56|32.07|52.53|66.93|65.90|
+
 
 # Citation
 ```
