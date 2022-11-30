@@ -33,6 +33,7 @@ Besides, another alternative is to use BERT/RoBERTa to process text features, wh
 ### Training/Testing
 
 **DialogueCRN with Glove embedding** (paper)
+
 For training model on IEMOCAP dataset, you can refer to the following:
     
 ```bash
@@ -73,6 +74,7 @@ bash ./script/run_train_me.sh
 
 
 **DialogueCRN with RoBERTa embedding**
+
 For training model on IEMOCAP dataset, you can refer to:
 
 ```bash
