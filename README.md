@@ -32,7 +32,7 @@ Besides, another alternative is to use BERT/RoBERTa to process text features, wh
 
 ### Training/Testing
 
-#### DialogueCRN with Glove embedding (paper)
+**DialogueCRN with Glove embedding** (paper)
 For training model on IEMOCAP dataset, you can refer to the following:
     
 ```bash
@@ -51,7 +51,7 @@ python -u ${WORK_DIR}/code/run_train_ie.py   \
 For training model on MELD dataset, you can refer to the following:
 
 ```bash
-WORK_DIR="/DialogueCRN" # # your work path
+WORK_DIR="/DialogueCRN" # your work path
 
 EXP_NO="dialoguecrn_base"
 DATASET="meld"
@@ -63,7 +63,7 @@ python -u ${WORK_DIR}/code/run_train_me.py   \
     --gamma 1.0 --step_s 2  --step_p 0  --lr 0.0005 --l2 0.0002  --dropout 0.2 --base_layer 1
 ```
 
-**Run examples**
+Run examples:
 ```bash
 # IEMOCAP dataset
 bash ./script/run_train_ie.sh
@@ -72,7 +72,7 @@ bash ./script/run_train_me.sh
 ```
 
 
-#### DialogueCRN with RoBERTa embedding
+**DialogueCRN with RoBERTa embedding**
 For training model on IEMOCAP dataset, you can refer to:
 
 ```bash
@@ -102,7 +102,7 @@ python -u ${WORK_DIR}/code/run_train_bert_me.py   \
     --gamma 1 --step_s 0  --step_p 1  --lr 0.0005 --l2 0.0002  --dropout 0.2 --base_layer 1
 ```
 
-**Run examples**
+Run examples:
 ```bash
 # IEMOCAP dataset
 bash ./script/run_train_bert_ie.sh 
@@ -111,7 +111,7 @@ bash ./script/run_train_bert_me.sh
 
 ```
 
-Note: The optimal parameters (i.e., the number of turns in Reasoning Modules) are selected according to the performance of validation set, with slight differences under different experimental configurations (i.e., the version of cuda and pytorch).
+Note: The optimal hyper-parameters (i.e., the number of turns in Reasoning Modules) are selected according to the performance of validation set, with slight differences under different experimental configurations (i.e., the version of CUDA and PyTorch).
 
 
 ## Results
