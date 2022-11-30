@@ -32,39 +32,86 @@ Besides, another alternative is to use BERT/RoBERTa to process text features, wh
 
 ### Training/Testing
 
-For training model on IEMOCAP dataset , you can refer to the following:
+#### DialogueCRN with Glove embedding (paper)
+For training model on IEMOCAP dataset, you can refer to the following:
     
 ```bash
+WORK_DIR="/DialogueCRN" # your work path
+
 EXP_NO="dialoguecrn_base"
 DATASET="iemocap"
-WORK_DIR="${WORK_PATH}/DialogueCRN" # your work path
 DATA_DIR="${WORK_DIR}/data/${DATASET}/IEMOCAP_features.pkl"
 OUT_DIR="${WORK_DIR}/outputs/${DATASET}/${EXP_NO}"
 
 python -u ${WORK_DIR}/code/run_train_ie.py   \
-    --feature_type text --data_dir ${DATA_DIR} --output_dir ${OUT_DIR}  \
+    --status train  --feature_type text --data_dir ${DATA_DIR} --output_dir ${OUT_DIR}  \
     --gamma 0 --step_s 3  --step_p 4  --lr 0.0001 --l2 0.0002  --dropout 0.2 --base_layer 2
 ```
 
-For training model on MELD dataset , you can refer to the following:
+For training model on MELD dataset, you can refer to the following:
 
 ```bash
+WORK_DIR="/DialogueCRN" # # your work path
+
 EXP_NO="dialoguecrn_base"
 DATASET="meld"
-WORK_DIR="${WORK_PATH}/DialogueCRN" # # your work path
 DATA_DIR="${WORK_DIR}/data/${DATASET}/MELD_features_raw.pkl"
 OUT_DIR="${WORK_DIR}/outputs/${DATASET}/${EXP_NO}"
 
 python -u ${WORK_DIR}/code/run_train_me.py   \
-    --feature_type text --data_dir ${DATA_DIR} --output_dir ${OUT_DIR}  \
-    --gamma 1.0 --step_s 3  --step_p 0  --lr 0.0005 --l2 0.0002  --dropout 0.2 --base_layer 1
+    --status train  --feature_type text --data_dir ${DATA_DIR} --output_dir ${OUT_DIR}  \
+    --gamma 1.0 --step_s 2  --step_p 0  --lr 0.0005 --l2 0.0002  --dropout 0.2 --base_layer 1
 ```
 
-### Run examples
+**Run examples**
 ```bash
+# IEMOCAP dataset
 bash ./script/run_train_ie.sh
+# MELD dataset
 bash ./script/run_train_me.sh
 ```
+
+
+#### DialogueCRN with RoBERTa embedding
+For training model on IEMOCAP dataset, you can refer to:
+
+```bash
+WORK_DIR="/DialogueCRN" # your work path
+
+EXP_NO="dialoguecrn_bert_base"
+DATASET="iemocap"
+DATA_DIR="${WORK_DIR}/data/${DATASET}/iemocap_features_roberta.pkl"
+OUT_DIR="${WORK_DIR}/outputs/${DATASET}/${EXP_NO}"
+
+python -u ${WORK_DIR}/code/run_train_bert_ie.py   \
+    --status train  --feature_type text  --data_dir ${DATA_DIR}  --output_dir ${OUT_DIR}    \
+    --gamma 0  --step_s 3  --step_p 0  --lr 0.0001  --l2 0.0002  --dropout 0.2  --base_layer 2
+```
+
+For training model on MELD dataset, you can refer to:
+```bash
+WORK_DIR="/DialogueCRN" # your work path
+
+EXP_NO="dialoguecrn_bert_base"
+DATASET="meld"
+DATA_DIR="${WORK_DIR}/data/${DATASET}/meld_features_roberta.pkl"
+OUT_DIR="${WORK_DIR}/outputs/${DATASET}/${EXP_NO}"
+
+python -u ${WORK_DIR}/code/run_train_bert_me.py   \
+    --status train  --feature_type text  --data_dir ${DATA_DIR}  --output_dir ${OUT_DIR}    \
+    --gamma 1 --step_s 0  --step_p 1  --lr 0.0005 --l2 0.0002  --dropout 0.2 --base_layer 1
+```
+
+**Run examples**
+```bash
+# IEMOCAP dataset
+bash ./script/run_train_bert_ie.sh 
+# MELD dataset
+bash ./script/run_train_bert_me.sh 
+
+```
+
+Note: The optimal parameters (i.e., the number of turns in Reasoning Modules) are selected according to the performance of validation set, with slight differences under different experimental configurations (i.e., the version of cuda and pytorch).
 
 
 ## Results

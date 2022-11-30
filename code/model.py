@@ -149,6 +149,7 @@ class DialogueCRN(nn.Module):
         super(DialogueCRN, self).__init__()
         self.base_model = base_model
         self.n_speakers = n_speakers
+        self.hidden_size = hidden_size
 
         if self.base_model == 'LSTM':
             self.rnn = nn.LSTM(input_size=input_size, hidden_size=hidden_size, num_layers=base_layer, bidirectional=True, dropout=dropout)
@@ -167,10 +168,11 @@ class DialogueCRN(nn.Module):
 
     def forward(self, U, qmask, seq_lengths):
         U_s, U_p = None, None
+
         if self.base_model == 'LSTM':
             # (b,l,h), (b,l,p)
             U_, qmask_ = U.transpose(0, 1), qmask.transpose(0, 1)
-            U_p_ = torch.zeros(U_.size()[0], U_.size()[1], 200).type(U.type())
+            U_p_ = torch.zeros(U_.size()[0], U_.size()[1], self.hidden_size * 2).type(U.type())
             U_parties_ = [torch.zeros_like(U_).type(U_.type()) for _ in range(self.n_speakers)]
             for b in range(U_.size(0)):
                 for p in range(len(U_parties_)):
@@ -190,13 +192,12 @@ class DialogueCRN(nn.Module):
 
         elif self.base_model == 'GRU':
             U_, qmask_ = U.transpose(0, 1), qmask.transpose(0, 1)
-            U_p_ = torch.zeros(U_.size()[0], U_.size()[1], 200).type(U.type())
+            U_p_ = torch.zeros(U_.size()[0], U_.size()[1], self.hidden_size * 2).type(U.type())
             U_parties_ = [torch.zeros_like(U_).type(U_.type()) for _ in range(self.n_speakers)]  # default 2
             for b in range(U_.size(0)):
                 for p in range(len(U_parties_)):
                     index_i = torch.nonzero(qmask_[b][:, p]).squeeze(-1)
-                    if index_i.size(0) > 0:
-                        U_parties_[p][b][:index_i.size(0)] = U_[b][index_i]
+                    if index_i.size(0) > 0: U_parties_[p][b][:index_i.size(0)] = U_[b][index_i]
             E_parties_ = [self.rnn_parties(U_parties_[p].transpose(0, 1))[0].transpose(0, 1) for p in range(len(U_parties_))]
 
             for b in range(U_p_.size(0)):
@@ -205,9 +206,14 @@ class DialogueCRN(nn.Module):
                     if index_i.size(0) > 0: U_p_[b][index_i] = E_parties_[p][b][:index_i.size(0)]
             U_p = U_p_.transpose(0, 1)
             U_s, hidden = self.rnn(U)
-        elif self.base_model == 'None':
+        elif self.base_model == 'Linear':
             # TODO
-            U_s = self.base_linear(U)
+            U = self.base_linear(U)
+            U = self.dropout(F.relu(U))
+            hidden = self.smax_fc(U)
+            log_prob = F.log_softmax(hidden, 2)
+            logits = torch.cat([log_prob[:, j, :][:seq_lengths[j]] for j in range(len(seq_lengths))])
+            return logits
 
         logits = self.cognition_net(U_s, U_p, seq_lengths)
         return logits
