@@ -38,10 +38,10 @@ For training model on IEMOCAP dataset, you can refer to the following:
     
 ```bash
 WORK_DIR="/DialogueCRN" # your work path
+DATA_DIR="/DialogueCRN/data/iemocap/IEMOCAP_features.pkl" # your data path
 
 EXP_NO="dialoguecrn_base"
 DATASET="iemocap"
-DATA_DIR="${WORK_DIR}/data/${DATASET}/IEMOCAP_features.pkl"
 OUT_DIR="${WORK_DIR}/outputs/${DATASET}/${EXP_NO}"
 
 python -u ${WORK_DIR}/code/run_train_ie.py   \
@@ -53,10 +53,10 @@ For training model on MELD dataset, you can refer to the following:
 
 ```bash
 WORK_DIR="/DialogueCRN" # your work path
+DATA_DIR="/DialogueCRN/data/meld/MELD_features_raw.pkl" # your data path
 
 EXP_NO="dialoguecrn_base"
 DATASET="meld"
-DATA_DIR="${WORK_DIR}/data/${DATASET}/MELD_features_raw.pkl"
 OUT_DIR="${WORK_DIR}/outputs/${DATASET}/${EXP_NO}"
 
 python -u ${WORK_DIR}/code/run_train_me.py   \
@@ -79,10 +79,10 @@ For training model on IEMOCAP dataset, you can refer to:
 
 ```bash
 WORK_DIR="/DialogueCRN" # your work path
+DATA_DIR="/DialogueCRN/data/iemocap/iemocap_features_roberta.pkl" # your data path
 
 EXP_NO="dialoguecrn_bert_base"
 DATASET="iemocap"
-DATA_DIR="${WORK_DIR}/data/${DATASET}/iemocap_features_roberta.pkl"
 OUT_DIR="${WORK_DIR}/outputs/${DATASET}/${EXP_NO}"
 
 python -u ${WORK_DIR}/code/run_train_bert_ie.py   \
@@ -93,10 +93,10 @@ python -u ${WORK_DIR}/code/run_train_bert_ie.py   \
 For training model on MELD dataset, you can refer to:
 ```bash
 WORK_DIR="/DialogueCRN" # your work path
+DATA_DIR="/DialogueCRN/data/meld/meld_features_roberta.pkl" # your data path
 
 EXP_NO="dialoguecrn_bert_base"
 DATASET="meld"
-DATA_DIR="${WORK_DIR}/data/${DATASET}/meld_features_roberta.pkl"
 OUT_DIR="${WORK_DIR}/outputs/${DATASET}/${EXP_NO}"
 
 python -u ${WORK_DIR}/code/run_train_bert_me.py   \

@@ -2,17 +2,15 @@
 export CUDA_VISIBLE_DEVICES=0
 
 WORK_DIR="/DialogueCRN" # your work path
+DATA_DIR="/DialogueCRN/data/meld/meld_features_roberta.pkl"
 
 
 EXP_NO="dialoguecrn_bert_base"
 DATASET="meld"
 echo "${EXP_NO}, ${DATASET}"
 
-
-DATA_DIR="${WORK_DIR}/data/${DATASET}/meld_features_roberta.pkl"
 OUT_DIR="${WORK_DIR}/outputs/${DATASET}/${EXP_NO}"
 MODEL_DIR="${WORK_DIR}/outputs/${DATASET}/${EXP_NO}/dialoguecrn_36.pkl"
-
 LOG_PATH="${WORK_DIR}/logs/${DATASET}"
 if [[ ! -d ${LOG_PATH} ]];then
     mkdir -p  ${LOG_PATH}

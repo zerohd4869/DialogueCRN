@@ -2,17 +2,15 @@
 export CUDA_VISIBLE_DEVICES=0
 
 WORK_DIR="/DialogueCRN" # your work path
+DATA_DIR="/DialogueCRN/data/iemocap/IEMOCAP_features.pkl" # your data path
 
 
 EXP_NO="dialoguecrn_base"
 DATASET="iemocap"
 echo "${EXP_NO}, ${DATASET}"
 
-
-DATA_DIR="${WORK_DIR}/data/${DATASET}/IEMOCAP_features.pkl"
 OUT_DIR="${WORK_DIR}/outputs/${DATASET}/${EXP_NO}"
 MODEL_DIR="${WORK_DIR}/outputs/${DATASET}/${EXP_NO}/dialoguecrn_22.pkl"
-
 LOG_PATH="${WORK_DIR}/logs/${DATASET}"
 if [[ ! -d ${LOG_PATH} ]];then
     mkdir -p  ${LOG_PATH}
