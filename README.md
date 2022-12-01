@@ -32,7 +32,7 @@ Besides, another alternative is to use BERT/RoBERTa to process text features, wh
 
 ### Training/Testing
 
-**DialogueCRN with Glove embedding** (paper)
+**DialogueCRN with Glove features** (paper)
 
 For training model on IEMOCAP dataset, you can refer to the following:
     
@@ -61,7 +61,7 @@ OUT_DIR="${WORK_DIR}/outputs/${DATASET}/${EXP_NO}"
 
 python -u ${WORK_DIR}/code/run_train_me.py   \
     --status train  --feature_type text --data_dir ${DATA_DIR} --output_dir ${OUT_DIR}  \
-    --gamma 1.0 --step_s 2  --step_p 0  --lr 0.0005 --l2 0.0002  --dropout 0.2 --base_layer 1
+    --gamma 1.0 --step_s 2  --step_p 0  --lr 0.0005 --l2 0.0002  --dropout 0.2 --base_layer 1 --valid_rate 0.1
 ```
 
 Run examples:
@@ -73,7 +73,7 @@ bash ./script/run_train_me.sh
 ```
 
 
-**DialogueCRN with RoBERTa embedding**
+**DialogueCRN with RoBERTa features**
 
 For training model on IEMOCAP dataset, you can refer to:
 
@@ -87,7 +87,7 @@ OUT_DIR="${WORK_DIR}/outputs/${DATASET}/${EXP_NO}"
 
 python -u ${WORK_DIR}/code/run_train_bert_ie.py   \
     --status train  --feature_type text  --data_dir ${DATA_DIR}  --output_dir ${OUT_DIR}    \
-    --gamma 0  --step_s 3  --step_p 0  --lr 0.0001  --l2 0.0002  --dropout 0.2  --base_layer 2
+    --gamma 0  --step_s 3  --step_p 0  --lr 0.0001  --l2 0.0002  --dropout 0.2  --base_layer 2 --valid_rate 0.1
 ```
 
 For training model on MELD dataset, you can refer to:
@@ -101,7 +101,7 @@ OUT_DIR="${WORK_DIR}/outputs/${DATASET}/${EXP_NO}"
 
 python -u ${WORK_DIR}/code/run_train_bert_me.py   \
     --status train  --feature_type text  --data_dir ${DATA_DIR}  --output_dir ${OUT_DIR}    \
-    --gamma 1 --step_s 0  --step_p 1  --lr 0.0005 --l2 0.0002  --dropout 0.2 --base_layer 1
+    --gamma 1 --step_s 0  --step_p 1  --lr 0.0001 --l2 0.0002  --dropout 0.2 --base_layer 1 --use_valid_flag
 ```
 
 Run examples:
@@ -122,7 +122,7 @@ Results of DialogueCRN on the IEMOCAP dataset:
 
 |Model |Happy|Sad|Neutral|Angry|Excited|Frustrated|*Acc*|*Weighted-F1*|
 |:----- |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-|DialogueCRN (paper) |62.61|81.86|60.05|58.49|75.17|60.08|66.05|66.20|
+|**DialogueCRN** (paper) |62.61|81.86|60.05|58.49|75.17|60.08|66.05|66.20|
 |DialogueCRN + Multimodal |53.23|83.37|62.96|66.09|75.40|66.07|67.16|67.21|
 |DialogueCRN + RoBERTa |54.28|81.34|69.57|62.09|67.33|64.22|67.39|67.53|
 
@@ -131,7 +131,7 @@ Results of DialogueCRN on the MELD dataset:
 
 |Model |Neutral|Surprise|Fear|Sad|Happy|Disgust|Anger|*Acc*|*Weighted-F1*|
 |:-----|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-|DialogueCRN (paper) |76.62|49.69|-|24.37|53.70|-|44.91|60.73|58.39|
+|**DialogueCRN** (paper) |76.62|49.69|-|24.37|53.70|-|44.91|60.73|58.39|
 |DialogueCRN + Multimodal |77.01|50.10|-|26.63|52.77|-|45.15|61.11|58.67|
 |DialogueCRN + RoBERTa |79.72|57.62|18.26|39.30|64.56|32.07|52.53|66.93|65.90|
 

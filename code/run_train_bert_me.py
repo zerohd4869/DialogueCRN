@@ -135,7 +135,7 @@ if __name__ == '__main__':
 
     parser.add_argument('--batch-size', type=int, default=32, metavar='BS', help='batch size')
 
-    parser.add_argument('--use_valid_flag', action='store_true', default=True, help='use valid set')
+    parser.add_argument('--use_valid_flag', action='store_true', default=False, help='use valid set')
 
     parser.add_argument('--lr', type=float, default=0.0001, metavar='LR', help='learning rate: 0.0005')
 

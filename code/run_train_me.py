@@ -150,7 +150,7 @@ if __name__ == '__main__':
 
     parser.add_argument('--batch-size', type=int, default=32, metavar='BS', help='batch size')
 
-    parser.add_argument('--valid_rate', type=float, default=0.1, metavar='valid_rate', help='valid rate')
+    parser.add_argument('--valid_rate', type=float, default=0.0, metavar='valid_rate', help='valid rate: 0.0/0.1')
 
     parser.add_argument('--lr', type=float, default=0.0005, metavar='LR', help='learning rate')
 
