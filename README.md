@@ -122,7 +122,7 @@ Results of DialogueCRN on the IEMOCAP dataset:
 
 |Model |Happy|Sad|Neutral|Angry|Excited|Frustrated|*Acc*|*Weighted-F1*|
 |:----- |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-|**DialogueCRN** (paper) |62.61|81.86|60.05|58.49|75.17|60.08|66.05|66.20|
+|**DialogueCRN (paper)** |62.61|81.86|60.05|58.49|75.17|60.08|66.05|66.20|
 |DialogueCRN + Multimodal |53.23|83.37|62.96|66.09|75.40|66.07|67.16|67.21|
 |DialogueCRN + RoBERTa |54.28|81.34|69.57|62.09|67.33|64.22|67.39|67.53|
 
@@ -131,7 +131,7 @@ Results of DialogueCRN on the MELD dataset:
 
 |Model |Neutral|Surprise|Fear|Sad|Happy|Disgust|Anger|*Acc*|*Weighted-F1*|
 |:-----|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-|**DialogueCRN** (paper) |76.62|49.69|-|24.37|53.70|-|44.91|60.73|58.39|
+|**DialogueCRN (paper)** |76.62|49.69|-|24.37|53.70|-|44.91|60.73|58.39|
 |DialogueCRN + Multimodal |77.01|50.10|-|26.63|52.77|-|45.15|61.11|58.67|
 |DialogueCRN + RoBERTa |79.72|57.62|18.26|39.30|64.56|32.07|52.53|66.93|65.90|
 
