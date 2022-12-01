@@ -158,7 +158,6 @@ class MELDRobertaCometDataset(Dataset):
 
         '''
         label index mapping = {'neutral': 0, 'surprise': 1, 'fear': 2, 'sadness': 3, 'joy': 4, 'disgust': 5, 'anger':6}
-        nine speakers: ['Chandler','The Interviewer','Ross','Phoebe','Joey','Rachel','Ross','Chandler','Mr. Geller']
         '''
 
         if split == 'train':
