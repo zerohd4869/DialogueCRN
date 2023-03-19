@@ -77,10 +77,11 @@ def train_or_eval_model(model, loss_f, dataloader, train_flag=False, optimizer=N
         if train_flag:
             optimizer.zero_grad()
 
-        r1, r2, r3, r4, qmask, umask, label2 = [d.cuda() for d in data[:-1]] if cuda_flag else data[:-1]
+        # roberta_fea: CLS embedding of last hidden layer in RoBERTa
+        roberta_fea, qmask, umask, label2 = [d.cuda() for d in data[:-1]] if cuda_flag else data[:-1]
         seq_lengths = [(umask[j] == 1).nonzero().tolist()[-1][0] + 1 for j in range(len(umask))]
-        dataf = [r1, r2, r3, r4]
-        log_prob, log_prob2 = model(dataf, qmask, seq_lengths, umask)  # ,mu, logvar
+
+        log_prob = model(roberta_fea, qmask, seq_lengths)
 
         label = torch.cat([label2[j][:seq_lengths[j]] for j in range(len(label2))])
         loss = loss_f(log_prob, label)
@@ -88,6 +89,10 @@ def train_or_eval_model(model, loss_f, dataloader, train_flag=False, optimizer=N
         preds.append(torch.argmax(log_prob, 1).cpu().numpy())
         labels.append(label.cpu().numpy())
         losses.append(loss.item())
+
+        if train_flag:
+            loss.backward()
+            optimizer.step()
 
     if preds != []:
         preds = np.concatenate(preds)
@@ -175,6 +180,7 @@ if __name__ == '__main__':
     # IEMOCAP dataset
     n_classes, n_speakers, hidden_size, input_size = 6, 2, 128, None
     target_names = ['hap', 'sad', 'neu', 'ang', 'exc', 'fru']
+    # perform 1/weight according to the weight of each label in training data
     class_weights = torch.FloatTensor([1 / 0.087178797, 1 / 0.145836136, 1 / 0.229786089, 1 / 0.148392305, 1 / 0.140051123, 1 / 0.24875555])
 
     if feature_type in ['text']:
