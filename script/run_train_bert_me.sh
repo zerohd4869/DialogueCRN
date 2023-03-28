@@ -26,7 +26,7 @@ do
         for sp in ${S[@]}
         do
         echo "gamma:${g}, step_s: ${ss}, step_p: ${sp}"
-        python -u ${WORK_DIR}/code/run_train_me.py   \
+        python -u ${WORK_DIR}/code/run_train_bert_me.py   \
             --status train  --feature_type text  --data_dir ${DATA_DIR}  --output_dir ${OUT_DIR}  --load_model_state_dir ${MODEL_DIR} \
             --gamma $g --step_s ${ss}  --step_p ${sp}  --lr 0.0001 --l2 0.0002  --dropout 0.2  --base_layer 1  --use_valid_flag \
         >> ${LOG_PATH}/${EXP_NO}.out 2>&1
