@@ -114,7 +114,7 @@ bash ./script/run_train_bert_me.sh
 
 ```
 
-Note: The optimal hyper-parameters (i.e., the number of turns in Reasoning Modules) are selected according to the performance of validation set, with slight differences under different experimental configurations (i.e., the version of CUDA and PyTorch).
+Note: The optimal hyper-parameters (e.g., the number of turns in Reasoning Modules) are selected according to the performance of validation set, with slight differences under different experimental configurations (i.e., the version of CUDA and PyTorch).
 
 
 ## Results
