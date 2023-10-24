@@ -1,8 +1,12 @@
 # DialogueCRN
-Source code for ACL-IJCNLP 2021 paper "[DialogueCRN: Contextual Reasoning Networks for Emotion Recognition in Conversations](https://arxiv.org/pdf/2106.01978.pdf)".
+The official repository for ACL-IJCNLP 2021 paper "[DialogueCRN: Contextual Reasoning Networks for Emotion Recognition in Conversations](https://arxiv.org/pdf/2106.01978.pdf)".
+In this work, we propose a cognitive-inspired network that uses multi-turn reasoning modules to capture implicit emotional clues in conversations.
 
-In this work, we focus on emotion recognition in textual conversations (textual ERC). 
-If you are interested in multimodal ERC, you can refer to a related work [MM-DFN](https://arxiv.org/pdf/2203.02385.pdf) ([code](https://github.com/zerohd4869/MM-DFN)).
+
+There are some recent works for the ERC task:
+- **MM-DFN**: We propose a graph-based method named MM-DFN that combines multimodal knowledge and contextual features for the ERC task. The paper can be found [here](https://arxiv.org/pdf/2203.02385.pdf) and the code is available on [here](https://github.com/zerohd4869/MM-DFN). This work has been **accepted by [ICASSP 2022]**.
+- **SACL-LSTM**: We introduce a new sequence-based method named SACL-LSTM, which achieves better performance for the ERC task. This method combines the contextual perception module of DialogueCRN with an adversarial contrastive learning technique. The paper can be accessed [here](https://aclanthology.org/2023.acl-long.606.pdf) and the code is available on [here](https://github.com/zerohd4869/SACL/tree/main/SACL-LSTM). This work has been **accepted by [ACL 2023]**.
+
 
 ## Quick Start
 
@@ -117,9 +121,9 @@ bash ./script/run_train_bert_me.sh
 Note: The optimal hyper-parameters (e.g., the number of turns in Reasoning Modules) are selected according to the performance of validation set, with slight differences under different experimental configurations (i.e., the version of CUDA and PyTorch).
 
 
-## Results
+## Results of DialogueCRN
 
-Results of DialogueCRN on the IEMOCAP dataset:
+IEMOCAP dataset:
 
 |Model |Happy|Sad|Neutral|Angry|Excited|Frustrated|*Acc*|*Weighted-F1*|
 |:----- |:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
@@ -128,13 +132,20 @@ Results of DialogueCRN on the IEMOCAP dataset:
 |DialogueCRN + RoBERTa |54.28|81.34|69.57|62.09|67.33|64.22|67.39|67.53|
 
 
-Results of DialogueCRN on the MELD dataset:
+MELD dataset:
 
 |Model |Neutral|Surprise|Fear|Sad|Happy|Disgust|Anger|*Acc*|*Weighted-F1*|
 |:-----|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
 |**DialogueCRN (paper)** |76.62|49.69|-|24.37|53.70|-|44.91|60.73|58.39|
 |DialogueCRN + Multimodal |77.01|50.10|-|26.63|52.77|-|45.15|61.11|58.67|
 |DialogueCRN + RoBERTa |79.72|57.62|18.26|39.30|64.56|32.07|52.53|66.93|65.77|
+
+
+EmoryNLP dataset:
+
+|Model |Joyful|Mad|Peaceful|Neutral|Sad|Powerful|Scared|*Acc*|*Macro-F1*|*Weighted-F1*|
+|:-----|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+|DialogueCRN + RoBERTa |54.42|36.44|10.18|53.83|25.74|4.55|37.49|41.04|31.81|38.79|
 
 
 ## Citation
